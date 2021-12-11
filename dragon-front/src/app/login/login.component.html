@@ -1,1 +1,44 @@
-<p>login works!</p>
+<div class="container">
+  <div class="content">
+    <div id="login">
+      <form [formGroup]="loginForm">
+        <h1>Login</h1>
+
+        <div class="input-group flex-nowrap mb-3">
+          <span class="input-group-text" id="addon-wrapping"><i class="bi bi-person"></i></span>
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Usuário"
+            aria-label="user"
+            aria-describedby="addon-wrapping"
+            formControlName="user"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="addon-wrapping"><i class="bi bi-lock"></i></span>
+          <input
+            [type]="isPasswordVisible ? 'text': 'password'"
+            class="form-control form-control-lg"
+            placeholder="Senha"
+            aria-label="password"
+            aria-describedby="password-button"
+            formControlName="password"
+          />
+          <button class="btn btn-outline-secondary" type="button" id="password-button" (click)="changePasswordVisibility()">
+            <i class="bi bi-eye-fill" *ngIf="!isPasswordVisible"></i>
+            <i class="bi bi-eye-slash-fill" *ngIf="isPasswordVisible"></i>
+          </button>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+          <label class="form-check-label" for="flexCheckDefault">Lembrar usuário</label>
+        </div>
+
+        <button type="button" class="btn btn-primary btn-lg col-lg-12 mt-3">Entrar</button>
+      </form>
+    </div>
+  </div>
+</div>
